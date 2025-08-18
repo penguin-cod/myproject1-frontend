@@ -49,16 +49,16 @@ npm run dev
 
 ## 流程架構
 
-前端路由守衛判斷 JWT 是否過期，過期自動登出並導向登入。
-        ↓         
-使用者輸入帳密，前端呼叫後端登入 API。
-        ↓
-後端驗證成功後回傳 JWT。
-        ↓
-前端存儲 JWT 於 Pinia 與 localStorage。
-        ↓
-後續 Axios 請求自動帶入 Authorization Header。
-        ↓
-後端驗證 JWT 有效性與權限，回應 API 資料。
-        ↓
-前端路由守衛判斷 JWT 是否過期，過期自動登出並導向登入。
+前端路由守衛判斷 JWT 是否過期，過期自動登出並導向登入。  
+        ↓           
+使用者輸入帳密，前端呼叫後端登入 API。  
+        ↓  
+後端驗證成功後回傳 JWT。  
+        ↓  
+前端存儲 JWT 於 Pinia 與 localStorage。  
+        ↓  
+後續 Axios 請求自動帶入 Authorization Header。  
+        ↓  
+後端驗證 JWT 有效性與權限，回應 API 資料。  
+        ↓  
+前端路由守衛判斷 JWT 是否過期，過期自動登出並導向登入。  
