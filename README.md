@@ -41,7 +41,7 @@
 
 ## 🚀 快速啟動
 
-bash：
+terminal：
 npm install
 npm run dev
 
