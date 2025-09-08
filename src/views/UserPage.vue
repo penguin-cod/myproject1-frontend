@@ -171,5 +171,8 @@ const rules=ref({//驗證規則
   onMounted(() => {
     fetchUsers()
   })
+    window.currentUser=currentUser
+    window.saveUser=saveUser
+    window.removeUser=removeUser
 </script>
 

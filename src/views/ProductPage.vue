@@ -198,7 +198,7 @@
   })
 
 
-  window.saveProduct = saveProduct
+
   window.currentProduct=currentProduct
   window.saveProduct = saveProduct
   window.removeProduct=removeProduct
