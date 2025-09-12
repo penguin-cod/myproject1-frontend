@@ -60,7 +60,7 @@ npm run dev
 後續 Axios 請求自動帶入 Authorization Header。  
         ↓  
 後端驗證 JWT 有效性與權限，回應 API 資料。  
-        ↓
-前端成功獲取資料          
-        ↓   
+        ↓       
+前端成功獲取資料。              
+        ↓       
 前端路由守衛判斷 JWT 是否過期，過期清掉 JWT 並導向登入。  
