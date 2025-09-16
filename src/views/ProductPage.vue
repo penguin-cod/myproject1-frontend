@@ -24,7 +24,7 @@
           <el-form-item label="商品編號" prop="productId">
             <el-input v-model="currentProduct.productId" /> 
           </el-form-item>
-          <el-form-item label="名稱" prop="name">
+          <el-form-item label="商品名稱" prop="name">
             <el-input v-model="currentProduct.name" />
           </el-form-item>
           <el-form-item label="價格" prop="price">
@@ -53,6 +53,7 @@
   <script setup>
   import { ref, onMounted } from 'vue'
   import { getProducts, addProduct, updateProduct, deleteProduct } from '../api/productApi.js'
+  import { ElMessage } from 'element-plus'
   
   const products = ref([])//商品列表資料
   const dialogVisible = ref(false)//是否顯示新增與編輯框
@@ -162,8 +163,10 @@
       }
       if(currentProduct.value.id){//更新
         await updateProduct(currentProduct.value)//PUT請求
+        ElMessage.success("編輯成功！")
       }else{
         await addProduct(currentProduct.value)//POST清求
+        ElMessage.success("新增成功！")
       }
       await fetchProducts()
       dialogVisible.value=false
@@ -182,6 +185,7 @@
       const res = await deleteProduct(id)
       if (res.data.success) {
       // 刪除成功
+        ElMessage.success("刪除成功！")
       await fetchProducts()
       }else{
         // 刪除失敗

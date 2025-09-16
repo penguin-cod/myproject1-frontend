@@ -23,7 +23,7 @@
           <el-form-item label="使用者編號" prop="userId">
             <el-input v-model="currentUser.userId" /> 
           </el-form-item>
-          <el-form-item label="名稱" prop="username">
+          <el-form-item label="使用者名稱" prop="username">
             <el-input v-model="currentUser.username" />
           </el-form-item>
           <el-form-item label="密碼" prop="password">
@@ -52,8 +52,10 @@
 </template>
 
 <script setup>
-import {ref,onMounted} from "vue"
-import {getUser, addUser, updateUser, deleteUser} from "../api/userApi.js"
+import { ref,onMounted }  from "vue"
+import { getUser, addUser, updateUser, deleteUser } from "../api/userApi.js"
+import { ElMessage } from "element-plus"
+
 const users=ref([])
 const currentUser=ref({id:null,userId:null,username:"",password:null,role:""})
 const dialogVisible = ref(false)
@@ -137,8 +139,10 @@ const rules=ref({//驗證規則
       }
       if(currentUser.value.id){//更新
         await updateUser(currentUser.value)//PUT請求
+        ElMessage.success("編輯成功")
       }else{
         await addUser(currentUser.value)
+        ElMessage.success("新增成功")
       }
       await fetchUsers()
       dialogVisible.value=false
@@ -157,7 +161,8 @@ const rules=ref({//驗證規則
       const res = await deleteUser(id)
       if (res.data.success) {
       // 刪除成功
-      await fetchUsers()
+        await fetchUsers()
+        ElMessage.success("刪除成功")
       }else{
         // 刪除失敗
         alert(res.data.message)
