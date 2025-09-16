@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="authStore.role === 'admin'">
         <!-- 查詢框 -->
       <el-input v-model="keyword" placeholder="輸入使用者名稱搜尋" @input="fetchUsers"></el-input>
 
@@ -55,7 +55,9 @@
 import { ref,onMounted }  from "vue"
 import { getUser, addUser, updateUser, deleteUser } from "../api/userApi.js"
 import { ElMessage } from "element-plus"
+import { useAuthStore } from "../stores/index.js"
 
+const authStore = useAuthStore()
 const users=ref([])
 const currentUser=ref({id:null,userId:null,username:"",password:null,role:""})
 const dialogVisible = ref(false)
