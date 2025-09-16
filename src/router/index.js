@@ -10,6 +10,7 @@ const routes=[
    
     {path:"/",
     component:AdminLayout,
+    meta: { requiresAuth : true},
     children:[
         {path:"products",component:ProductPage,meta: { requiresAuth: true }},//需登入驗證
         {path:"admin",component:UserPage,meta:{requiresAuth:true}}//需登入驗證
