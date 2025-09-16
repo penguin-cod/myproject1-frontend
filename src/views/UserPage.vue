@@ -6,8 +6,8 @@
       <el-button type="primary" @click="openAddDialog">註冊使用者</el-button>
       <!-- 使用者列表 -->
       <el-table :data="users" style="width: 100%; margin-top: 20px;">
-        <el-table-column prop="userId" label="使用者編號" />
-        <el-table-column prop="username" label="使用者名稱" />
+        <el-table-column prop="userId" label="使用者編號" :min-width="100"/>
+        <el-table-column prop="username" label="使用者名稱" :min-width="100"/>
         <el-table-column prop="role" label="權限" />
         <el-table-column label="操作">
           <template #default="scope">
